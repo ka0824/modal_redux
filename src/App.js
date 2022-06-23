@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ModalPortal from "./modal/ModalPortal";
+import Modal from "./modal/Modal";
+import React, { useState } from "react";
+import Test from "./Test";
+import ModalBackground from "./modal/ModalBackground";
+import styled, { keyframes } from "styled-components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper className="App">
+      <ModalPortal>
+        <ModalBackground></ModalBackground>
+      </ModalPortal>
+      <Shadow></Shadow>
+      <Test></Test>
+    </Wrapper>
   );
 }
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
+
+const Wrapper = styled.div``;
+
+const Shadow = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 export default App;
